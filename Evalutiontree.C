@@ -128,8 +128,6 @@ int main()
 char s[1000];
 scanf("%s",s);
 int i;
-for(i=0;s[i]!='\0';i++)
-{
 if(!(s[i]=='+'||s[i]=='-'||s[i]=='*'||s[i]=='/'||s[i]=='^'||s[i]=='('||s[i]==')'||(s[i]>='0'&&s[i]<='9')))
 {
 printf("Invalid");
@@ -138,7 +136,8 @@ return 0;
 }
 top=-1;
 int str_len=0;
-for(i=0;s[i]!='\0';i++) str_len++;
+for(i=0;s[i]!='\0';i++) 
+    str_len++;
 int exp[str_len];
 int exp_len=string_to_int_array(s,exp,str_len);
 int rev_prefix[exp_len];
@@ -148,8 +147,8 @@ for(i=0;i<len;i++)
 {
    prefix[len-1-i]=rev_prefix[i];
 }
-    for(i=len-1;i>=0;i--)
-evaluation(prefix[i]);
+for(i=len-1;i>=0;i--)
+   evaluation(prefix[i]);
 printf("%d",pop());
 return 0;
 }
