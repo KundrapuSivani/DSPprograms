@@ -31,7 +31,7 @@ c++;
 }
 if(c==n)
 {
-printf("\n all not are reachable from starting vertex using BFS :\n");
+printf("\n all nodes are reachable from starting vertex using BFS :\n");
 for(i=1;i<=n;i++)
 {
 if(visited[i])
@@ -40,7 +40,7 @@ printf("%d \t",i);
 }
 else 
 {
-printf("\n all nodes are reachable and BFS is not possible");
+printf("\n all nodes are not reachable and BFS is not possible");
 }
 }
 void BFStrav(int m) 
