@@ -58,7 +58,7 @@ void main()
 {
     int i,n,m;
     clrscr();
-    printf("\n enter number of element in be enqueued into the Q:");
+    printf("\n enter number of element to be enqueued into the Q:");
     scanf("%d",&n);
     for(i=0;i<n;i++)
     {
