@@ -12,12 +12,12 @@ int getmax(struct  Node* head)
    max=a->data;
    while(a->next!=b)
    {
-  if(a->data>max)
-   {
-   max=a->data;
-    }
-    a=a->next;
-    }
+      if(a->data>max)
+      {
+         max=a->data;
+      }
+      a=a->next;
+   }
    return max;
 }
 
@@ -98,18 +98,18 @@ int main(void)
 	}
 	else
 	{
-    for (i = 0; i < n; i++)
-	push(&head, a[i]);
-    start=head;
-    l= getmax (start);
-    while(l> 0)
-    {
-      N++;
-      l/= 10;
-    }
-    Radixsort(head,N);
-    printlist(head);
-    }
-    }
+           for (i = 0; i < n; i++)
+	      push(&head, a[i]);
+          start=head;
+          l= getmax (start);
+          while(l> 0)
+          {
+             N++;
+             l/= 10;
+          }
+          Radixsort(head,N);
+          printlist(head);
+          }
+       }
     return 0;
 }
