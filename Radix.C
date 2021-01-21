@@ -26,7 +26,7 @@ void insert(struct Node** head, int key)
     struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
     newnode->data = key;
     newnode->next=NULL;
-    node->prev = NULL;
+    newnode->prev = NULL;
     if (!(*head))
 	(*head) = newnode;
     else
