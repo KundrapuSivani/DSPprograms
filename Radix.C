@@ -21,15 +21,20 @@ int getmax(struct  Node* head)
    return max;
 }
 
-void push(struct Node** headref, int key)
+void insert(struct Node** head, int key)
 {
-    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
-    node->data = key;
+    struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
+    newnode->data = key;
+    newnode->next=NULL;
     node->prev = NULL;
-    node->next = *headref;
-    if (*headref != NULL)
-	(*headref)->prev = node;
-    *headref = node;
+    if (!(*head))
+	(*head) = newnode;
+    else
+    {
+	newnode->next=*head;
+	(*head)->prev=newnode;
+	(*head)=newnode;    
+    }
 }
 
 void printlist(struct Node* head)
@@ -99,7 +104,7 @@ int main(void)
 	else
 	{
            for (i = 0; i < n; i++)
-	      push(&head, a[i]);
+	      insert(&head, a[i]);
           start=head;
           l= getmax (start);
           while(l> 0)
