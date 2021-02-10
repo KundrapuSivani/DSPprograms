@@ -129,11 +129,11 @@ void printGraph (struct Graph *graph)
       
         while (temp)
 	
-	      {
+	{
 	  
-           printf ("%d->", temp->vertex);
+            printf ("%d->", temp->vertex);
 	  
-           temp = temp->next;
+            temp = temp->next;
 	
         }
       
@@ -159,7 +159,7 @@ void Connected (struct Graph *graph, int vertices)
       
           if (graph->visited[i] != 1)
 	
-	          {
+	   {
 	  
                DFS (graph, i);
 	  
@@ -188,7 +188,7 @@ int main (int argc, char *argv[])
       
         printf (" usage %s is provided ,filename is not provided\n", argv[0]);
     
-     }
+    }
   
    else
     
