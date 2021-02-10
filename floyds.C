@@ -25,18 +25,14 @@ void floyd (int matrix[n][n])
     for (j = 1; j <= n; j++)
       adjmat[i][j] = matrix[i][j];
   for (k = 1; k <= n; k++)
-    {
+   {
       for (i = 1; i <= n; i++)
-	      {
-	          for (j = 1; j <= n; j++)
-	             {
-	                 if (adjmat[i][k] + adjmat[k][j] < adjmat[i][j])
-		                    adjmat[i][j] = adjmat[i][k] + adjmat[k][j];
-	             }
-	       }
+	   for (j = 1; j <= n; j++)
+	         if (adjmat[i][k] + adjmat[k][j] < adjmat[i][j])
+		       adjmat[i][j] = adjmat[i][k] + adjmat[k][j];
       printf ("Adjacency matrix%d\n", k);
       display (adjmat);
-    }
+   }
   printf("\n The shortest paths between the nodes using floyd warshallare:\n");
   for (i = 1; i <= n; i++)
     for (j = 1; j <= n; j++)
