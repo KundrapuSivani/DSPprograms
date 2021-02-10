@@ -41,11 +41,11 @@ void DFS (struct Graph *graph, int vertex)
       
          if (graph->visited[connectedVertex] == 0)
 	
-	          {
+	   {
 	  
                 DFS (graph, connectedVertex);
 	
-            }
+           }
       
        temp = temp->next;
     
@@ -83,7 +83,7 @@ struct Graph *createGraph (int vertices)
   
      for (i = 1; i <= vertices; i++)
     
-    {
+     {
       
          graph->adjLists[i] = NULL;
       
@@ -180,7 +180,7 @@ void Connected (struct Graph *graph, int vertices)
 int main (int argc, char *argv[]) 
 {
   
-   int a[20], nodes, edges, i = 0, c = 0;
+   int a[20], nodes, edges, i = 0;
   
    if (argc != 2)
     
@@ -198,31 +198,29 @@ int main (int argc, char *argv[])
       
         if (file == 0)
 	
-	       {
+	 {
 	  
               printf ("could not open file\n");
 	
-        }
+         }
       
-       else
+        else
 	
-	      {
+	 {
 	  
              int x;
 	  
-             while ((x = fgetc (file)) != EOF)
+              while ((x = fgetc (file)) != EOF)
 	    
-	             {
+	        {
 	      
                     printf ("%c", x);
 	      
                     if (x != ' ' && x != '\n')
 		
-		                  {
+		      {
 		  
                             a[i++] = x - '0';
-		  
-                            c++;
 		
                       }
 	    
