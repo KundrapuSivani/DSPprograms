@@ -8,12 +8,12 @@ void display (int adjmat[n][n])
   for (i = 1; i <= n; i++)
     {
       for (j = 1; j <= n; j++)
-	       {
-	           if (adjmat[i][j] == INF)
-	                printf ("%4s", "INF");
-	           else
-	                printf ("%4d", adjmat[i][j]);
-	       }
+	{
+	    if (adjmat[i][j] == INF)
+	          printf ("%4s", "INF");
+	    else
+	         printf ("%4d", adjmat[i][j]);
+	 }
       printf ("\n");
     }
 }
@@ -27,19 +27,19 @@ void floyd (int matrix[n][n])
   for (k = 1; k <= n; k++)
    {
       for (i = 1; i <= n; i++)
-	   for (j = 1; j <= n; j++)
-	         if (adjmat[i][k] + adjmat[k][j] < adjmat[i][j])
-		       adjmat[i][j] = adjmat[i][k] + adjmat[k][j];
+	 for (j = 1; j <= n; j++)
+	     if (adjmat[i][k] + adjmat[k][j] < adjmat[i][j])
+		 adjmat[i][j] = adjmat[i][k] + adjmat[k][j];
       printf ("Adjacency matrix%d\n", k);
       display (adjmat);
    }
   printf("\n The shortest paths between the nodes using floyd warshallare:\n");
   for (i = 1; i <= n; i++)
     for (j = 1; j <= n; j++)
-      {
-	       if (i != j)
-	         printf ("\n<%d,%d>=%d", i, j, adjmat[i][j]);
-      }
+     {
+	 if (i != j)
+	    printf ("\n<%d,%d>=%d", i, j, adjmat[i][j]);
+     }
 }
 
 int main ()
@@ -50,9 +50,9 @@ int main ()
   for (i = 1; i <= n; i++)
     {
       for (j = 1; j <= n; j++)
-	     {
-	         scanf ("%d", &adj[i][j]);
-	     }
+       {
+	   scanf ("%d", &adj[i][j]);
+       }
       printf ("\n");
     }
   floyd (adj);
