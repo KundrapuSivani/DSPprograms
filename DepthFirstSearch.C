@@ -1,14 +1,51 @@
 #include<stdio.h>
-#include<conio.h>
-int adj[30][30],visited[30];
-int m,n;
-void DFStrav(int m);
-void main()
+#include<stdlib.h>
+#define MAX 30
+int v,n,adj[MAX][MAX],visited[MAX];
+void DFStrav(int v);
+int stack[MAX];
+int top = -1;
+void push(int v)
+{
+        if(top == (MAX-1))
+        {
+              printf("\nStack Overflow");
+              return;
+        }
+        top=top+1;
+        stack[top] = v;
+}
+ 
+int pop()
+{
+        int v;
+        if(top==-1)
+        {
+              printf("\nStack Underflow");
+              exit(1);
+        }
+        else
+        {
+              v=stack[top];
+              top=top-1;
+              return v;
+        }
+}
+ 
+int isEmptyStack( )
+{
+      if(top==-1)
+             return 1;
+      else
+           return 0;
+}
+ 
+int main()
 {
    int i,j;
-   printf("\n enter number of nodes in the graph :");
+   printf("\n Enter number of nodes in the graph :");
    scanf( "%d",&n);
-   printf("\n enter the adjacency matrix\n");
+   printf("\n Enter the adjacency matrix:\n");
    for(i=1;i<=n;i++)
    {
       for(j=1;j<=n;j++)
@@ -20,19 +57,28 @@ void main()
    {
       visited[i]=0;
    }
-   printf("\n enter the starting node of the graph");
-   scanf("%d",&m);
-   printf("DFS traversal for the given graph:");
-   DFStrav(m);    
+   printf("\n Enter the starting node of the graph :");
+   scanf("%d",&v);
+   printf("\nDFS traversal for the given graph:");
+   DFStrav(v);  
+   return 0;
 }
-void DFStrav(int m)
+void DFStrav(int v)
 {
-    int i;
-    printf("\n%d",m);
-    visited[m]=1;
-    for(i=1;i<=n;i++)
-    {
-        if(adj[m][i]==1&&!visited[i])
-        DFStrav(i);
-    }
+        int i;
+        push(v);
+        while(!isEmptyStack())
+        {
+                v = pop();
+                if(!visited[v])
+                {
+                      printf("%d ",v);
+                      visited[v]=1;
+                }
+                for(i=1;i<=n;i++)
+                {
+                      if(adj[v][i]==1 && !visited[i])
+                             push(i);
+                }
+        }
 }
