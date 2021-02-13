@@ -41,7 +41,7 @@ int pop()
         if(visited[v]==0)
         {
            visited[v]=1;
-           printf("node %d is visited\n",v);
+           printf("%d \t",v);
 
            for(int i=0;i<n;i++)
           {
