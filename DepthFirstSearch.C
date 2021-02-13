@@ -46,14 +46,14 @@ int main()
    printf("\n Enter number of nodes in the graph :");
    scanf( "%d",&n);
    printf("\n Enter the adjacency matrix:\n");
-   for(i=1;i<=n;i++)
+   for(i=0;i<n;i++)
    {
-      for(j=1;j<=n;j++)
+      for(j=0;j<n;j++)
       {
           scanf("%d",&adj[i][j]);
       }
    }
-   for(i=1;i<=n;i++)
+   for(i=0;i<n;i++)
    {
       visited[i]=0;
    }
@@ -75,7 +75,7 @@ void DFStrav(int v)
                       printf("%d ",v);
                       visited[v]=1;
                 }
-                for(i=1;i<=n;i++)
+                for(i=0;i<n;i++)
                 {
                       if(adj[v][i]==1 && !visited[i])
                              push(i);
